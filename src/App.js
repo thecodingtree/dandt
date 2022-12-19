@@ -141,7 +141,12 @@ function App() {
               <p>
                 <b>Wedding:</b> Friday, May 12th, 2023.
               </p>
-              <a href='#'>add to calendar</a>
+              <a
+                target='_blank'
+                href='https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=XzY0cjNlYzlrNnNvMzhjcGg2b3FqZWI5ajZncmo4ZTIwZDVobTJyMWVkbGduNHRiNGR0cTJzb3JmZGsgZG1pdGNoZWtAbQ&amp;tmsrc=dmitchek%40gmail.com'
+              >
+                add to calendar
+              </a>
             </Col>
           </Col>
         </Row>
@@ -165,7 +170,7 @@ function App() {
               <Col xs={12} md={6}>
                 <Col>
                   <p>
-                    <b>Atlatic Sands Oasis</b>
+                    <b>Atlantic Sands Oasis</b>
                   </p>
                   <p>
                     Carr #681, Bo.Islote, Sector Jarealitos # 5 calle principal
@@ -296,8 +301,8 @@ function App() {
               <p>
                 Our location in Arecibo is about 1 hour from the airport in San
                 Juan. We understand that guests may come to Puerto Rico for
-                varying lengths of time. Our hope is that for those of guests
-                who do not want to rent a car for personal use during their time
+                varying lengths of time. Our hope is that for those guests who
+                do not want to rent a car for personal use during their time
                 that we will be able to provide transportation (most likely a
                 few rental vans) to transport our party from San Juan to Arecibo
                 and back. If guests are interested in group transportation we
