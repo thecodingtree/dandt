@@ -12,7 +12,7 @@ import './App.css';
 
 import main_image from './assets/main_image.jpg';
 import { MapPreview } from './components/MapPreview';
-import { OtherListings } from './components/OtherListings';
+import { RentalListings } from './components/RentalListings';
 
 function App() {
   const [showGoToTop, setShowGoToTop] = useState(false);
@@ -34,13 +34,13 @@ function App() {
   const navArea = useRef(null);
 
   return (
-    <div className='App'>
+    <div className='App mb-5'>
       <Container fluid>
         <Row>
           <Col sm={12} md={4} className='offset-md-4'>
             <a name='top'></a>
             {showGoToTop && (
-              <a href='#top'>
+              <a href='#top' className='d-none d-md-block'>
                 <span className='float'>
                   <i className='fa-solid fa-arrow-up'></i>
                 </span>
@@ -49,7 +49,7 @@ function App() {
             <Navbar bg='bg-white' expand='lg' ref={navArea} className=''>
               <Navbar.Toggle aria-controls='basic-navbar-nav' />
               <Navbar.Collapse id='basic-navbar-nav'>
-                <Nav className='align-items-center justify-content-between flex-fill'>
+                <Nav className='align-items-md-center justify-content-between flex-fill'>
                   <Nav.Link href='#when'>
                     <span className='nav-icon'>
                       <i className='fa-solid fa-calendar-days'></i>
@@ -97,44 +97,25 @@ function App() {
           </Col>
         </Row>
         <Row>
-          <img src={main_image} className='main-image' alt='logo' />
+          <img src={main_image} className='main-image h-50' alt='logo' />
         </Row>
         <Row>
           <Col sm={12} md={8} className='content-block offset-md-2'>
             <h2 className='text'>we're getting married!</h2>
             <p>
-              Welcome! We are so excited to invite you to our wedding in Puerto
-              Rico this coming May 12th, 2023, as someone who is an important
-              part of our lives we are hoping you can join us on this special
-              day. After discovering we both have a love for exploring new
-              places and being at the beach, we decided a small destination
-              wedding would be an amazing way to start our marriage. We can’t
-              wait to exchange vows in a beautiful place at an intimate ceremony
-              with some of our dearest friends and family.{' '}
+              Welcome! We are so excited to share with you about our plans for
+              our wedding in Puerto Rico this coming May 12th, 2023. After
+              discovering we both have a love for exploring new places and being
+              at the beach, we decided a small destination wedding would be an
+              amazing way to start our marriage. We can’t wait to exchange vows
+              in a beautiful place at an intimate ceremony with some of our
+              dearest friends and family.
             </p>
             <p>
-              We are so excited to invite you to join us in Puerto Rico to
-              celebrate our marriage and to explore and enjoy all this beautiful
-              location has to offer. We understand that a destination wedding
-              can pose some challenges since everyone will need to travel to our
-              location. We are hoping to use this website to make this process
-              as simple and seamless as possible, as we would love to help host
-              everyone as well as we can while learning and exploring a new
-              place! We hope you find most of the answers to your questions here
-              but if you have more questions please feel free to email us:
-            </p>
-            <p>
-              <a href='mailto:dmitchek@gmail.com'>dmitchek@gmail.com</a> /
-              <a href='mailto:tashmor@mail.regent.edu'>
-                tashmor@mail.regent.edu
-              </a>
-            </p>
-            <p>
-              We also understand that a destination wedding may pose some
-              challenges for some people and everyone may not be able to join us
-              for a multitude of reasons. We are planning to host a reception in
-              Kentucky and would love for you to join us there if you are not
-              able to come to the wedding.
+              Unfortunately having a destination wedding does limit our guest
+              list. Because of this, we are planning to host at least one if not
+              several receptions next summer and are excited to have the
+              opportunity to celebrate with everyone.
             </p>
           </Col>
         </Row>
@@ -176,7 +157,7 @@ function App() {
                   </span>
                 </Col>
                 <Col>
-                  <h4 className='text'>where?</h4>
+                  <h4 className='text'>where</h4>
                 </Col>
               </Col>
             </Row>
@@ -184,7 +165,7 @@ function App() {
               <Col xs={12} md={6}>
                 <Col>
                   <p>
-                    <b>Atlatic Sand Oasis</b>
+                    <b>Atlatic Sands Oasis</b>
                   </p>
                   <p>
                     Carr #681, Bo.Islote, Sector Jarealitos # 5 calle principal
@@ -194,24 +175,36 @@ function App() {
                     We will be renting the above VRBO home in Arecibo, Puerto
                     Rico from 4pm on Wednesday, May 10th to 11am on Satuday, May
                     13th, 2023. The home is 1 hour and 4 minutes from the main
-                    airpot in San Juan: Luis Munoz Marin International Airport
-                    (Airport code: SJU). We will be staying at the VRBO the days
+                    airport in San Juan. We will be staying at the VRBO the days
                     leading up to the wedding. The happy couple will be leaving
                     Friday evening after the wedding for another location,
                     however, guests at the home will have access to the house
-                    till 11am on Saturday. You are invited to join us for all or
-                    part of those days. VRBO house policy allowing (still
+                    till 11am on Saturday. VRBO house policy allowing (still
                     working out the details on that) we are also hoping to
-                    invite you for meals and to join us at the pool and beach at
-                    the house the day before the wedding.
+                    invite our guests for meals and to join us at the pool and
+                    beach at the house the day before the wedding.
                   </p>
                 </Col>
-                {/* <div>
-                  <img
-                    src='https://picsum.photos/300/200'
-                    style={{ width: '100%' }}
-                  />
-                </div> */}
+                <Col>
+                  <p>
+                    Check out the house on VRBO{' '}
+                    <a
+                      href='https://www.vrbo.com/330575ha?adultsCount=15&noDates=true&unitId=3092742'
+                      target='_blank'
+                    >
+                      Atlantic Sands Oasis
+                    </a>{' '}
+                    or jump directly to a video preview on{' '}
+                    <a
+                      href='https://www.youtube.com/watch?v=ScbZ5rEJD6o&t=28s'
+                      target='_blank'
+                    >
+                      YouTube
+                    </a>
+                    {'.'}
+                  </p>
+                </Col>
+                <Col></Col>
               </Col>
               <Col sm={12} md={6}>
                 <MapPreview />
@@ -236,12 +229,12 @@ function App() {
                 Here are some rental homes within walking distance of the
                 Atlantic Sands Oasis. Full disclosure these were briefly
                 researched and added because of their proximity to Atantic sands
-                but please be sure to double check that they look like a place
-                you’d want to stay(Ie ratings, hosts, etc):{' '}
+                but we recommend guests review the details of the rental before
+                booking.
               </p>
             </Col>
             <Row>
-              <OtherListings />
+              <RentalListings />
             </Row>
           </Col>
         </Row>
@@ -259,7 +252,7 @@ function App() {
             </Col>
             <Col sm={12} className='mt-4'>
               <p>
-                We recommend you fly into the main Puerto Rico airport in San
+                We recommend guests fly into the main Puerto Rico airport in San
                 Juan:
               </p>
               <p>
@@ -269,9 +262,9 @@ function App() {
                 Airport Airport code: <b>SJU</b>
               </p>
               <p>
-                Though we are giving you this information as soon as possible;
-                we are hoping flight prices will be lower in January and
-                February and recommend you look then.
+                Though we are getting information out as soon as possible; we
+                are hoping flight prices will be lower in January and February
+                and recommend guests look then.
               </p>
               <p>
                 For those traveling from Kentucky, we will be flying on
@@ -303,13 +296,18 @@ function App() {
               <p>
                 Our location in Arecibo is about 1 hour from the airport in San
                 Juan. We understand that guests may come to Puerto Rico for
-                varying lenghs of time. Our hope is that for those of you who do
-                not want to rent a car for personal use during your time that we
-                will be able to provide transportation (most likely a few rental
-                vans) to transport us from San Juan to Arecibo and back. If you
-                are interested in group transportation we are hoping to
-                coordinate flight times. Please let us know when you are
-                planning to fly in and we will do our best to coordinate.{' '}
+                varying lengths of time. Our hope is that for those of guests
+                who do not want to rent a car for personal use during their time
+                that we will be able to provide transportation (most likely a
+                few rental vans) to transport our party from San Juan to Arecibo
+                and back. If guests are interested in group transportation we
+                are hoping to coordinate flight times. Any guests interested can
+                let us know when they are planning to fly in and we will do our
+                best to coordinate.
+              </p>
+              <p>
+                Uber is another option that is available, for around $100 one
+                way (up to six people).
               </p>
             </Col>
           </Col>
@@ -329,41 +327,65 @@ function App() {
             <Col className='mt-4'>
               <p>
                 We are so looking forward to enjoying the beauty of Puerto Rico
-                with you all and to get the opportunity to celebrate together!
-                We wanted you to have all this information ahead of time to make
-                arrangements as you likes Here are some notes to keep in mind as
-                you prepare for your trip! Feel free to reach out with any
-                questions, and if we can provide more information, we hope to
+                and to get the opportunity to celebrate! We wanted the
+                information sent out ahead of time so that guests can make
+                arrangements as they would like.
+              </p>
+              <p>
+                Here are some notes for guests to keep in mind as they prepare
+                for the trip! They can feel free to reach out with any
+                questions, or if they would like more information. We hope to
                 make the process as smooth as possible.
               </p>
             </Col>
             <Col>
               <ul className='text-start'>
                 <li>
-                  We wanted you to have all this information ahead of time to
-                  make arrangements as you like, however, we will be sending out
-                  a formal invitation in the spring so you have time to decide
-                  if joining us is something that you are able to do and can
+                  <b>Invitation:</b> We will be sending out a formal invitation
+                  in the spring so our guests can have time to decide if joining
+                  us is something that they are able to do and will be able to
                   RSVP then!
                 </li>
                 <li>
-                  Apparently sand fleas/ mosquitos can be an issue near this
-                  property so we will do our best to deal with that but bringing
-                  bug repellent options is a great idea.
+                  <b>Puerto Rico:</b> Some fast facts about the island of Puerto
+                  Rico. It is a US territory so you will not need a passport to
+                  visit if you are a US citizen. Also important to note that the
+                  first language is Spanish, though most people speak some
+                  English, be aware not everyone will be fluent. The island uses
+                  US currency. The tap water should be drinkable due to being
+                  treated similar to that on the US mainland. It also sounds
+                  like most cell phones should work without any need for
+                  international phone plans. In May, Puerto Rico will be on the
+                  same time as Eastern Standard time though they usually are one
+                  hour ahead of us, and should be a balmy 70-80 degrees
+                  fahrenheit. From all accounts the island is really safe and
+                  should be a great place to visit. You can find more info on
+                  the island here: https://www.discoverpuertorico.com/island
                 </li>
                 <li>
-                  People refer to the house as a “Big Blue House” so if you have
-                  any issues tracking it on google, look for the big blue house!
-                  Lol
+                  <b>Arecibo, PR:</b> From reading many of the house reviews and
+                  reading up on Arecibo, it sounds like it is more local and
+                  less touristy, ie less tourists, and tourist activities, more
+                  spanish speaking, and a little more run down looking than San
+                  Juan, however, from all accounts the natural beauty and
+                  beaches cannot be beat and are less busy than some of the more
+                  touristy areas. There also should be some restaurants and
+                  grocery stores within walking distance of the VRBO house area.
                 </li>
                 <li>
-                  The area is more of a local scene and isn’t super touristy,
-                  but has some restaurants and grocery stores within walking
-                  distance and is noted to be very safe by all the information
-                  we’ve seen.
+                  <b>Atlantic Sands Oasis VRBO:</b> Apparently sand fleas/
+                  mosquitos can be an issue near this property so bringing bug
+                  repellent options is a great idea. It sounds like the house
+                  can sometimes be difficult to find via google so it is good to
+                  note that it is referred to as the “Big Blue House”, so if you
+                  can’t find its exact local look for a big blue two story
+                  house!
                 </li>
                 <li>
-                  Also, your presence is all we want, so no gift required!
+                  <b>Registry:</b> We understand weddings are an event people
+                  like to celebrate with gifts, so we are adding a registry,
+                  however, the presence of our guests is our priority and we are
+                  not expecting gifts!
                 </li>
               </ul>
             </Col>
