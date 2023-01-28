@@ -44,12 +44,13 @@ export const RentalListings = () => {
         sleeps={6}
       />
       <HouseListing
-        link='https://www.airbnb.com/rooms/38125775?adults=2&check_in=2023-05-10&check_out=2023-05-13&source_impression_id=p3_1670800141_rPZPEUV6mjqmc5N5'
+        link='https://www.vrbo.com/1833880?adultsCount=2&arrival=2023-05-10&departure=2023-05-13&unitId=2395390'
         title='Rose Nest'
         price={500}
         img={rose_nest}
         source='VRBO'
         sleeps={10}
+        unavailable={true}
       />
       <HouseListing
         link='https://www.airbnb.com/rooms/39901102?adults=2&location=Map%20areaIslote%20road%20681%20Arecibo%2C%20Puerto%20Rico&check_in=2023-05-10&check_out=2023-05-13&federated_search_id=5551295d-d72c-45e4-869b-4fdf37418467&source_impression_id=p3_1670800512_7FvY0GR%2BnW5Nqggf'
@@ -66,6 +67,7 @@ export const RentalListings = () => {
         img={ocean_front}
         source='Airbnb'
         sleeps={7}
+        unavailable={true}
       />
       <HouseListing
         link='https://www.airbnb.com/rooms/23285857?check_in=2023-05-10&check_out=2023-05-13&guests=1&adults=1&s=67&unique_share_id=5b014fb7-82ca-4d0e-96bb-706c9c5607c1&source_impression_id=p3_1670807086_m%2F5HhxE%2BpSlCtZUT'
