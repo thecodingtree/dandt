@@ -7,6 +7,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import { motion, useScroll } from 'framer-motion';
+
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -15,12 +17,16 @@ import { MapPreview } from './components/MapPreview';
 import { RentalListings } from './components/RentalListings';
 
 function App() {
+  const { scrollYProgress } = useScroll();
   const [showGoToTop, setShowGoToTop] = useState(false);
 
+  const [mainImgHeight, setMainImgHeight] = useState(60);
+  const [mainImgOpacity, setMainImgOpacity] = useState(1);
+
   useEffect(() => {
-    console.log('useEffect');
+    //console.log('useEffect');
     window.addEventListener('scroll', () => {
-      console.log('Scrolling');
+      //console.log('Scrolling: ', window.scrollY);
       const isAtTop = window.scrollY > navArea.current.offsetTop;
 
       if (isAtTop) {
@@ -68,15 +74,15 @@ function App() {
                     </span>
                     <span className='d-md-none nav-item-text'>Lodging</span>
                   </Nav.Link>
-                  <Navbar.Brand href='#home'>
-                    <h1 className='text d-none d-md-block'>D & T</h1>
-                  </Navbar.Brand>
                   <Nav.Link href='#flights'>
                     <span className='nav-icon'>
                       <i className='fa-solid fa-plane-departure'></i>
                     </span>
                     <span className='d-md-none nav-item-text'>Flights</span>
                   </Nav.Link>
+                  <Navbar.Brand href='#home'>
+                    <h1 className='text d-none d-md-block'>D & T</h1>
+                  </Navbar.Brand>
                   <Nav.Link href='#transportation'>
                     <span className='nav-icon'>
                       <i className='fa-solid fa-van-shuttle'></i>
@@ -91,13 +97,32 @@ function App() {
                     </span>
                     <span className='d-md-none nav-item-text'>Other Notes</span>
                   </Nav.Link>
+                  <Nav.Link href='#rsvp'>
+                    <span className='nav-icon'>
+                      <i className='fa-solid fa-reply'></i>
+                    </span>
+                    <span className='d-md-none nav-item-text'>RSVP</span>
+                  </Nav.Link>
+                  <Nav.Link href='#registry'>
+                    <span className='nav-icon'>
+                      <i className='fa-solid fa-gift'></i>
+                    </span>
+                    <span className='d-md-none nav-item-text'>Registry</span>
+                  </Nav.Link>
                 </Nav>
               </Navbar.Collapse>
             </Navbar>
           </Col>
         </Row>
         <Row>
-          <img src={main_image} className='main-image h-50' alt='logo' />
+          <Col>
+            <motion.div
+              initial={{ height: '60em', opacity: 1 }}
+              style={{ height: '0em', opacity: 0 }}
+            >
+              <img src={main_image} className='main-image' alt='logo' />
+            </motion.div>
+          </Col>
         </Row>
         <Row>
           <Col sm={12} md={8} className='content-block offset-md-2'>
@@ -396,7 +421,8 @@ function App() {
             </Col>
           </Col>
         </Row>
-        {/* <Row>
+        <Row>
+          <a name='rsvp'></a>
           <Col sm={12} className='content-block'>
             <Col>
               <span className='header-icon'>
@@ -408,9 +434,33 @@ function App() {
             </Col>
 
             <p>tell us you're coming!</p>
-            <a href='#'>relevant link</a>
+            <a
+              href='https://docs.google.com/forms/d/e/1FAIpQLSczAStyUwVcOA_cU_zuH2DwK-JVgIaoh6Yww2ze78-_hPtVww/viewform?usp=sharing'
+              target='_blank'
+            >
+              click here to RSVP
+            </a>
           </Col>
-        </Row> */}
+        </Row>
+        <Row>
+          <a name='registry'></a>
+          <Col sm={12} className='content-block'>
+            <Col>
+              <span className='header-icon'>
+                <i className='fa-solid fa-gift'></i>
+              </span>
+            </Col>
+            <Col>
+              <h4 className='text'>Registry</h4>
+            </Col>
+            <a
+              href='https://www.myregistry.com/wedding-registry/tasha-mortimer-and-david-mitchell-lexington-ky/3609521'
+              target='_blank'
+            >
+              click here for our registry
+            </a>
+          </Col>
+        </Row>
       </Container>
     </div>
   );
