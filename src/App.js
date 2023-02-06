@@ -116,12 +116,12 @@ function App() {
         </Row>
         <Row>
           <Col>
-            <motion.div
-              initial={{ height: '60em', opacity: 1 }}
-              style={{ height: '0em', opacity: 0 }}
-            >
-              <img src={main_image} className='main-image' alt='logo' />
-            </motion.div>
+            <img
+              src={main_image}
+              className='main-image d-none d-md-block'
+              alt='logo'
+            />
+            <h1 className='text d-block d-md-none'>D & T</h1>
           </Col>
         </Row>
         <Row>
