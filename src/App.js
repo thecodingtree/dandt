@@ -15,6 +15,7 @@ import './App.css';
 import main_image from './assets/main_image.jpg';
 import { MapPreview } from './components/MapPreview';
 import { RentalListings } from './components/RentalListings';
+import { UsGallery } from './components/UsGallery';
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -38,6 +39,21 @@ function App() {
   }, []);
 
   const navArea = useRef(null);
+
+  const daysTillWedding = Math.ceil(
+    (new Date('2023-05-12') - new Date()) / (1000 * 60 * 60 * 24)
+  );
+
+  let daysTillWeddingLabel = '';
+  if (daysTillWedding === 0) {
+    daysTillWeddingLabel = "we're getting married today!";
+  } else if (daysTillWedding === 1) {
+    daysTillWeddingLabel = "we're getting married tomorrow!";
+  } else if (daysTillWedding < 0) {
+    daysTillWeddingLabel = 'we got married!';
+  } else {
+    daysTillWeddingLabel = `we're getting married in ${daysTillWedding} days!`;
+  }
 
   return (
     <div className='App mb-5'>
@@ -116,17 +132,18 @@ function App() {
         </Row>
         <Row>
           <Col>
-            <img
+            {/* <img
               src={main_image}
               className='main-image d-none d-md-block'
               alt='logo'
-            />
+            /> */}
+            <UsGallery />
             <h1 className='text d-block d-md-none'>D & T</h1>
           </Col>
         </Row>
         <Row>
           <Col sm={12} md={8} className='content-block offset-md-2'>
-            <h2 className='text'>we're getting married!</h2>
+            <h2 className='text'>{daysTillWeddingLabel}</h2>
             <p>
               Welcome! We are so excited to share with you about our plans for
               our wedding in Puerto Rico this coming May 12th, 2023. After

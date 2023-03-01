@@ -34,6 +34,7 @@ export const RentalListings = () => {
         img={cielito_del}
         source='Airbnb'
         sleeps={6}
+        unavailable={true}
       />
       <HouseListing
         link='https://www.airbnb.com/rooms/38125775?adults=2&check_in=2023-05-10&check_out=2023-05-13&source_impression_id=p3_1670800141_rPZPEUV6mjqmc5N5'
