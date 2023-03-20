@@ -14,8 +14,14 @@ export const HouseListing = ({
   unavailable = false,
 }) => {
   const cardClasses = ['text-start', 'w-100', 'h-100'];
+
   return (
-    <Col sm={12} md={6} lg={4} className='mb-4'>
+    <Col
+      sm={12}
+      md={6}
+      lg={4}
+      className={`mb-3 ${unavailable ? 'd-none' : null}`}
+    >
       <Card
         className={`text-start w-100 h-100 ${
           unavailable ? 'text-decoration-line-through' : null

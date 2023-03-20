@@ -77,6 +77,7 @@ export const RentalListings = () => {
         img={blue_nest}
         source='Airbnb'
         sleeps={10}
+        unavailable={true}
       />
       <HouseListing
         link='https://www.vrbo.com/1729893?adultsCount=2&arrival=2023-05-10&departure=2023-05-13&unitId=2291379'
@@ -93,6 +94,7 @@ export const RentalListings = () => {
         img={canary_castle}
         source='VRBO'
         sleeps={8}
+        unavailable={true}
       />
     </Row>
   );

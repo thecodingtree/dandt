@@ -387,12 +387,12 @@ function App() {
             </Col>
             <Col>
               <ul className='text-start'>
-                <li>
+                {/* <li>
                   <b>Invitation:</b> We will be sending out a formal invitation
                   in the spring so our guests can have time to decide if joining
                   us is something that they are able to do and will be able to
                   RSVP then!
-                </li>
+                </li> */}
                 <li>
                   <b>Puerto Rico:</b> Some fast facts about the island of Puerto
                   Rico. It is a US territory so you will not need a passport to
