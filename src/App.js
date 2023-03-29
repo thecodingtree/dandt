@@ -3,26 +3,17 @@ import { useEffect, useRef, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import { motion, useScroll } from 'framer-motion';
-
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import main_image from './assets/main_image.jpg';
 import { MapPreview } from './components/MapPreview';
 import { RentalListings } from './components/RentalListings';
 import { UsGallery } from './components/UsGallery';
 
 function App() {
-  const { scrollYProgress } = useScroll();
   const [showGoToTop, setShowGoToTop] = useState(false);
-
-  const [mainImgHeight, setMainImgHeight] = useState(60);
-  const [mainImgOpacity, setMainImgOpacity] = useState(1);
 
   useEffect(() => {
     //console.log('useEffect');
@@ -38,12 +29,25 @@ function App() {
     });
   }, []);
 
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   const navArea = useRef(null);
 
-  const daysTillWedding = Math.ceil(
-    (new Date('2023-05-12') - new Date()) / (1000 * 60 * 60 * 24)
-  );
+  const getDaysUntilWedding = () => {
+    const now = new Date();
+    const weddingDate = new Date('2023-05-12');
+    const timezoneOffset = now.getTimezoneOffset() * 60 * 1000; // convert minutes to milliseconds
+    return Math.ceil(
+      (weddingDate - now + timezoneOffset) / (1000 * 60 * 60 * 24)
+    );
+  };
 
+  let daysTillWedding = getDaysUntilWedding();
   let daysTillWeddingLabel = '';
   if (daysTillWedding === 0) {
     daysTillWeddingLabel = "we're getting married today!";
@@ -62,11 +66,9 @@ function App() {
           <Col sm={12} md={4} className='offset-md-4'>
             <a name='top'></a>
             {showGoToTop && (
-              <a href='#top' className='d-none d-md-block'>
-                <span className='float'>
-                  <i className='fa-solid fa-arrow-up'></i>
-                </span>
-              </a>
+              <span className='float clickable' onClick={goToTop}>
+                <i className='fa-solid fa-arrow-up'></i>
+              </span>
             )}
             <Navbar bg='bg-white' expand='lg' ref={navArea} className=''>
               <Navbar.Toggle aria-controls='basic-navbar-nav' />

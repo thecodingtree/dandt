@@ -4,47 +4,24 @@ import Masonry from './Masonry';
 
 import { useWindowSize } from './useWindowSize';
 
-const photos = [
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/1.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/2.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/3.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/4.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/5.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/6.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/7.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/9.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/10.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/11.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/12.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/13.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/13.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/14.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/15.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/16.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/17.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/18.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/19.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/20.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/21.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/22.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/23.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/24.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/25.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/26.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/27.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/28.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/29.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/30.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/31.png',
-  'https://s3.amazonaws.com/mortimerlovesmitchell.com/images/32.png',
-];
+const US_PHOTOS_PATH = 'https://dandt.s3.amazonaws.com/images';
 
-function shuffle(array) {
+function getShuffledPhotoPaths(
+  start,
+  end,
+  path = US_PHOTOS_PATH,
+  extension = 'png'
+) {
+  const array = Array.from(
+    { length: end - start + 1 },
+    (_, i) => `${path}/${i + start}.${extension}`
+  );
+
   let currentIndex = array.length,
     randomIndex;
 
   // While there remain elements to shuffle.
-  while (currentIndex != 0) {
+  while (currentIndex !== 0) {
     // Pick a remaining element.
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
@@ -59,10 +36,16 @@ function shuffle(array) {
   return array;
 }
 
+const shuffledPhotoPaths = getShuffledPhotoPaths(1, 32);
+
+const ImageElement = memo(({ value }) => (
+  <div style={{ borderRadius: '10px', margin: '5px' }}>
+    <img src={value} style={{ width: '100%', borderRadius: '5px' }} alt='' />
+  </div>
+));
+
 export const UsGallery = () => {
   const windowSize = useWindowSize();
-
-  //const columnCount = windowSize.width > 1000 ? 10 : 5;
 
   const columnCount = () => {
     if (windowSize.width > 1500) {
@@ -76,18 +59,10 @@ export const UsGallery = () => {
     }
   };
 
-  const shuffledPhotos = shuffle(photos);
-
-  const ImageElement = memo(({ value }) => (
-    <div style={{ borderRadius: '10px', margin: '5px' }}>
-      <img src={value} style={{ width: '100%', borderRadius: '5px' }} />
-    </div>
-  ));
-
   return (
     <div className='us-container'>
       <Masonry
-        dataArray={shuffledPhotos}
+        dataArray={shuffledPhotoPaths}
         columnCount={columnCount()}
         ChildsElement={ImageElement}
       />
