@@ -9,7 +9,6 @@ import Col from 'react-bootstrap/Col';
 import './App.css';
 
 import { MapPreview } from './components/MapPreview';
-import { RentalListings } from './components/RentalListings';
 import { UsGallery } from './components/UsGallery';
 
 function App() {
@@ -86,12 +85,6 @@ function App() {
                     </span>
                     <span className='d-md-none nav-item-text'>Where</span>
                   </Nav.Link>
-                  <Nav.Link href='#lodging'>
-                    <span className='nav-icon'>
-                      <i className='fa-solid fa-hotel'></i>
-                    </span>
-                    <span className='d-md-none nav-item-text'>Lodging</span>
-                  </Nav.Link>
                   <Nav.Link href='#flights'>
                     <span className='nav-icon'>
                       <i className='fa-solid fa-plane-departure'></i>
@@ -101,25 +94,11 @@ function App() {
                   <Navbar.Brand href='#home'>
                     <h1 className='text d-none d-md-block'>D & T</h1>
                   </Navbar.Brand>
-                  <Nav.Link href='#transportation'>
-                    <span className='nav-icon'>
-                      <i className='fa-solid fa-van-shuttle'></i>
-                    </span>
-                    <span className='d-md-none nav-item-text'>
-                      Transportation
-                    </span>
-                  </Nav.Link>
                   <Nav.Link href='#other-notes'>
                     <span className='nav-icon'>
                       <i className='fa-solid fa-asterisk'></i>
                     </span>
                     <span className='d-md-none nav-item-text'>Other Notes</span>
-                  </Nav.Link>
-                  <Nav.Link href='#rsvp'>
-                    <span className='nav-icon'>
-                      <i className='fa-solid fa-reply'></i>
-                    </span>
-                    <span className='d-md-none nav-item-text'>RSVP</span>
                   </Nav.Link>
                   <Nav.Link href='#registry'>
                     <span className='nav-icon'>
@@ -134,11 +113,6 @@ function App() {
         </Row>
         <Row>
           <Col>
-            {/* <img
-              src={main_image}
-              className='main-image d-none d-md-block'
-              alt='logo'
-            /> */}
             <UsGallery />
             <h1 className='text d-block d-md-none'>D & T</h1>
           </Col>
@@ -264,32 +238,6 @@ function App() {
         <Row>
           <Col sm={12} md={8} className='content-block offset-md-2'>
             {/* ONE COL LAYOUT */}
-            <Col>
-              <a name='lodging'></a>
-              <span className='header-icon'>
-                <i className='fa-solid fa-hotel'></i>
-              </span>
-            </Col>
-            <Col>
-              <h4 className='text'>lodging</h4>
-            </Col>
-            <Col className='mt-4'>
-              <p>
-                Here are some rental homes within walking distance of the
-                Atlantic Sands Oasis. Full disclosure these were briefly
-                researched and added because of their proximity to Atantic sands
-                but we recommend guests review the details of the rental before
-                booking.
-              </p>
-            </Col>
-            <Row>
-              <RentalListings />
-            </Row>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm={12} md={8} className='content-block offset-md-2'>
-            {/* ONE COL LAYOUT */}
             <Col xs={12}>
               <a name='flights'></a>
               <span className='header-icon'>
@@ -325,38 +273,6 @@ function App() {
               </p>
               <p>
                 Arrival: <b>SJU, Southwest #1096 @ 3:45pm</b>
-              </p>
-            </Col>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm={12} md={8} className='content-block offset-md-2'>
-            {/* ONE COL LAYOUT */}
-            <Col>
-              <a name='transportation'></a>
-              <span className='header-icon'>
-                <i className='fa-solid fa-van-shuttle'></i>
-              </span>
-            </Col>
-            <Col>
-              <h4 className='text'>transportation</h4>
-            </Col>
-            <Col className='mt-4'>
-              <p>
-                Our location in Arecibo is about 1 hour from the airport in San
-                Juan. We understand that guests may come to Puerto Rico for
-                varying lengths of time. Our hope is that for those guests who
-                do not want to rent a car for personal use during their time
-                that we will be able to provide transportation (most likely a
-                few rental vans) to transport our party from San Juan to Arecibo
-                and back. If guests are interested in group transportation we
-                are hoping to coordinate flight times. Any guests interested can
-                let us know when they are planning to fly in and we will do our
-                best to coordinate.
-              </p>
-              <p>
-                Uber is another option that is available, for around $100 one
-                way (up to six people).
               </p>
             </Col>
           </Col>
@@ -438,27 +354,6 @@ function App() {
                 </li>
               </ul>
             </Col>
-          </Col>
-        </Row>
-        <Row>
-          <a name='rsvp'></a>
-          <Col sm={12} className='content-block'>
-            <Col>
-              <span className='header-icon'>
-                <i className='fa-solid fa-reply'></i>
-              </span>
-            </Col>
-            <Col>
-              <h4 className='text'>RSVP</h4>
-            </Col>
-
-            <p>tell us you're coming!</p>
-            <a
-              href='https://docs.google.com/forms/d/e/1FAIpQLSczAStyUwVcOA_cU_zuH2DwK-JVgIaoh6Yww2ze78-_hPtVww/viewform?usp=sharing'
-              target='_blank'
-            >
-              click here to RSVP
-            </a>
           </Col>
         </Row>
         <Row>
