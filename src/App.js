@@ -5,11 +5,19 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 import './App.css';
 
-import { MapPreview } from './components/MapPreview';
+import map_preview from './assets/map_preview.png';
+import program_preview from './assets/program_preview.png';
+import schedule_preview from './assets/schedule_preview.png';
+import photo_preview from './assets/photo_preview.png';
+
+// import { MapPreview } from './components/MapPreview';
 import { UsGallery } from './components/UsGallery';
+import { InfoCard } from './components/InfoCard';
 
 function App() {
   const [showGoToTop, setShowGoToTop] = useState(false);
@@ -63,316 +71,116 @@ function App() {
       <Container fluid>
         <Row>
           <Col sm={12} md={4} className='offset-md-4'>
-            <a name='top'></a>
-            {showGoToTop && (
-              <span className='float clickable' onClick={goToTop}>
-                <i className='fa-solid fa-arrow-up'></i>
-              </span>
-            )}
-            <Navbar bg='bg-white' expand='lg' ref={navArea} className=''>
-              <Navbar.Toggle aria-controls='basic-navbar-nav' />
-              <Navbar.Collapse id='basic-navbar-nav'>
-                <Nav className='align-items-md-center justify-content-between flex-fill'>
-                  <Nav.Link href='#when'>
-                    <span className='nav-icon'>
-                      <i className='fa-solid fa-calendar-days'></i>
-                    </span>
-                    <span className='d-md-none nav-item-text'>When</span>
-                  </Nav.Link>
-                  <Nav.Link href='#where'>
-                    <span className='nav-icon'>
-                      <i className='fa-solid fa-map-location-dot'></i>
-                    </span>
-                    <span className='d-md-none nav-item-text'>Where</span>
-                  </Nav.Link>
-                  <Nav.Link href='#flights'>
-                    <span className='nav-icon'>
-                      <i className='fa-solid fa-plane-departure'></i>
-                    </span>
-                    <span className='d-md-none nav-item-text'>Flights</span>
-                  </Nav.Link>
-                  <Navbar.Brand href='#home'>
-                    <h1 className='text d-none d-md-block'>D & T</h1>
-                  </Navbar.Brand>
-                  <Nav.Link href='#other-notes'>
-                    <span className='nav-icon'>
-                      <i className='fa-solid fa-asterisk'></i>
-                    </span>
-                    <span className='d-md-none nav-item-text'>Other Notes</span>
-                  </Nav.Link>
-                  <Nav.Link href='#registry'>
-                    <span className='nav-icon'>
-                      <i className='fa-solid fa-gift'></i>
-                    </span>
-                    <span className='d-md-none nav-item-text'>Registry</span>
-                  </Nav.Link>
-                </Nav>
-              </Navbar.Collapse>
-            </Navbar>
+            <h1 className='text'>D & T</h1>
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className='d-none d-md-block'>
             <UsGallery />
-            <h1 className='text d-block d-md-none'>D & T</h1>
           </Col>
         </Row>
         <Row>
-          <Col sm={12} md={8} className='content-block offset-md-2'>
-            <h2 className='text'>{daysTillWeddingLabel}</h2>
-            <p>
-              Welcome! We are so excited to share with you about our plans for
-              our wedding in Puerto Rico this coming May 12th, 2023. After
-              discovering we both have a love for exploring new places and being
-              at the beach, we decided a small destination wedding would be an
-              amazing way to start our marriage. We can’t wait to exchange vows
-              in a beautiful place at an intimate ceremony with some of our
-              dearest friends and family.
-            </p>
-            <p>
-              Unfortunately having a destination wedding does limit our guest
-              list. Because of this, we are planning to host at least one if not
-              several receptions next summer and are excited to have the
-              opportunity to celebrate with everyone.
-            </p>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm={12} md={8} className='content-block offset-md-2'>
-            {/* ONE COL LAYOUT */}
-            <Col>
-              <a name='when'></a>
-              <span className='header-icon'>
-                <i className='fa-solid fa-calendar-days'></i>
-              </span>
-            </Col>
-            <Col>
-              <h4 className='text'>when</h4>
-            </Col>
-            <Col className='mt-4'>
-              <p>
-                <i>Wednesday, May 10th, 2023 to Saturday, May 13th, 2023</i>
-              </p>
-              <p>
-                <b>Rehearsal dinner:</b> Thursday, May 11th, 2023
-              </p>
-              <p>
-                <b>Wedding:</b> Friday, May 12th, 2023.
-              </p>
-              <a
-                target='_blank'
-                href='https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=XzY0cjNlYzlrNnNvMzhjcGg2b3FqZWI5ajZncmo4ZTIwZDVobTJyMWVkbGduNHRiNGR0cTJzb3JmZGsgZG1pdGNoZWtAbQ&amp;tmsrc=dmitchek%40gmail.com'
-              >
-                add to calendar
-              </a>
-            </Col>
-          </Col>
-        </Row>
-        <Row>
-          {/* TWO COL LAYOUT */}
-          <Col sm={12} md={8} className='content-block offset-md-2'>
+          <Col className='col-10 m-auto'>
             <Row>
-              <Col xs={12} className='mb-4'>
-                <Col>
-                  <a name='where'></a>
-                  <span className='header-icon'>
-                    <i className='fa-solid fa-map-location-dot'></i>
-                  </span>
-                </Col>
-                <Col>
-                  <h4 className='text'>where</h4>
-                </Col>
+              <Col sm={12} className='content-block'>
+                <h2 className='text'>{daysTillWeddingLabel}</h2>
+                <p>
+                  We are so excited that you are joining us for our wedding day
+                  in beautiful Arecibo, PR!
+                </p>
+                <p>
+                  ALL GUESTS are invited to join us at Atlantic Sands Oasis for
+                  the duration of our stay. We are going to be providing
+                  breakfast, lunch and dinner to all of our guests both Thursday
+                  and Friday. We will have full access to the pool, hot tub,
+                  beach and other amenities of Atlantic Sands Oasis. Below we
+                  have attached the week schedule, and wedding program.
+                </p>
+                <p>
+                  As you may know, we have never been to Puerto Rico before so
+                  there will undoubtedly be some learning curves. We appreciate
+                  your patience as we embrace island life, slow down, and go
+                  with the flow. We are so aware of the cost both financially
+                  and in time and energy to come be with us on our special day
+                  and we want to thank you again for being here with us, we hope
+                  you have a wonderful time.
+                </p>
               </Col>
             </Row>
             <Row>
-              <Col xs={12} md={6}>
-                <Col>
+              {/* WHERE */}
+              <Col sm={12} lg={4} className='content-block'>
+                <InfoCard image={map_preview}>
                   <p>
                     <b>Atlantic Sands Oasis</b>
                   </p>
                   <p>
                     Carr #681, Bo.Islote, Sector Jarealitos # 5 calle principal
-                    Arecibo, Puerto Rico 00612
                   </p>
-                  <p>
-                    We will be renting the above VRBO home in Arecibo, Puerto
-                    Rico from 4pm on Wednesday, May 10th to 11am on Satuday, May
-                    13th, 2023. The home is 1 hour and 4 minutes from the main
-                    airport in San Juan. We will be staying at the VRBO the days
-                    leading up to the wedding. The happy couple will be leaving
-                    Friday evening after the wedding for another location,
-                    however, guests at the home will have access to the house
-                    till 11am on Saturday. VRBO house policy allowing (still
-                    working out the details on that) we are also hoping to
-                    invite our guests for meals and to join us at the pool and
-                    beach at the house the day before the wedding.
-                  </p>
-                </Col>
-                <Col>
-                  <p>
-                    Check out the house on VRBO{' '}
-                    <a
-                      href='https://www.vrbo.com/330575ha?adultsCount=15&noDates=true&unitId=3092742'
-                      target='_blank'
-                    >
-                      Atlantic Sands Oasis
-                    </a>{' '}
-                    or jump directly to a video preview on{' '}
-                    <a
-                      href='https://www.youtube.com/watch?v=ScbZ5rEJD6o&t=28s'
-                      target='_blank'
-                    >
-                      YouTube
-                    </a>
-                    {'.'}
-                  </p>
-                </Col>
-                <Col></Col>
+                  <p>Arecibo, Puerto Rico 00612</p>
+                </InfoCard>
               </Col>
-              <Col sm={12} md={6}>
-                <MapPreview />
+              {/* SCHEDULE */}
+              <Col sm={12} lg={4} className='content-block'>
+                <InfoCard image={schedule_preview}>
+                  <a
+                    className='w-100 btn btn-primary'
+                    href='https://docs.google.com/spreadsheets/d/1oml3opHKmW8hmgmC9bKUQGp3EV_HWsX9huX5Ez2QtuI/edit?usp=share_link'
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    view schedule
+                  </a>
+                </InfoCard>
+              </Col>
+              {/* PROGRAM */}
+              <Col sm={12} lg={4} className='content-block'>
+                <InfoCard image={program_preview}>
+                  <a
+                    className='w-100 btn btn-primary'
+                    href='https://drive.google.com/file/d/1iHQauxvWbSamB0ysvX_EuPs03A0dSWC8/view?usp=share_link'
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    view program
+                  </a>
+                </InfoCard>
               </Col>
             </Row>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm={12} md={8} className='content-block offset-md-2'>
-            {/* ONE COL LAYOUT */}
-            <Col xs={12}>
-              <a name='flights'></a>
-              <span className='header-icon'>
-                <i className='fa-solid fa-plane-departure'></i>
-              </span>
-            </Col>
-            <Col sm={12}>
-              <h4 className='text'>flights</h4>
-            </Col>
-            <Col sm={12} className='mt-4'>
-              <p>
-                We recommend guests fly into the main Puerto Rico airport in San
-                Juan:
-              </p>
-              <p>
-                <b>Luis Munoz Marin International</b>
-              </p>
-              <p>
-                Airport Airport code: <b>SJU</b>
-              </p>
-              <p>
-                Though we are getting information out as soon as possible; we
-                are hoping flight prices will be lower in January and February
-                and recommend guests look then.
-              </p>
-              <p>
-                For those traveling from Kentucky, we will be flying on
-                <b> Southwest Airlines</b> from <b>Louisville</b> to{' '}
-                <b>San Juan</b> on the below flights:
-              </p>
-              <p>
-                Departure: <b>SDF, Southwest #153 @ 6:15am</b>
-              </p>
-              <p>
-                Arrival: <b>SJU, Southwest #1096 @ 3:45pm</b>
-              </p>
-            </Col>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm={12} md={8} className='content-block offset-md-2'>
-            {/* ONE COL LAYOUT */}
-            <Col>
-              <a name='other-notes'></a>
-              <span className='header-icon'>
-                <i className='fa-solid fa-asterisk'></i>
-              </span>
-            </Col>
-            <Col>
-              <h4 className='text'>other notes</h4>
-            </Col>
-            <Col className='mt-4'>
-              <p>
-                We are so looking forward to enjoying the beauty of Puerto Rico
-                and to get the opportunity to celebrate! We wanted the
-                information sent out ahead of time so that guests can make
-                arrangements as they would like.
-              </p>
-              <p>
-                Here are some notes for guests to keep in mind as they prepare
-                for the trip! They can feel free to reach out with any
-                questions, or if they would like more information. We hope to
-                make the process as smooth as possible.
-              </p>
-            </Col>
-            <Col>
-              <ul className='text-start'>
-                {/* <li>
-                  <b>Invitation:</b> We will be sending out a formal invitation
-                  in the spring so our guests can have time to decide if joining
-                  us is something that they are able to do and will be able to
-                  RSVP then!
-                </li> */}
-                <li>
-                  <b>Puerto Rico:</b> Some fast facts about the island of Puerto
-                  Rico. It is a US territory so you will not need a passport to
-                  visit if you are a US citizen. Also important to note that the
-                  first language is Spanish, though most people speak some
-                  English, be aware not everyone will be fluent. The island uses
-                  US currency. The tap water should be drinkable due to being
-                  treated similar to that on the US mainland. It also sounds
-                  like most cell phones should work without any need for
-                  international phone plans. In May, Puerto Rico will be on the
-                  same time as Eastern Standard time though they usually are one
-                  hour ahead of us, and should be a balmy 70-80 degrees
-                  fahrenheit. From all accounts the island is really safe and
-                  should be a great place to visit. You can find more info on
-                  the island here: https://www.discoverpuertorico.com/island
-                </li>
-                <li>
-                  <b>Arecibo, PR:</b> From reading many of the house reviews and
-                  reading up on Arecibo, it sounds like it is more local and
-                  less touristy, ie less tourists, and tourist activities, more
-                  spanish speaking, and a little more run down looking than San
-                  Juan, however, from all accounts the natural beauty and
-                  beaches cannot be beat and are less busy than some of the more
-                  touristy areas. There also should be some restaurants and
-                  grocery stores within walking distance of the VRBO house area.
-                </li>
-                <li>
-                  <b>Atlantic Sands Oasis VRBO:</b> Apparently sand fleas/
-                  mosquitos can be an issue near this property so bringing bug
-                  repellent options is a great idea. It sounds like the house
-                  can sometimes be difficult to find via google so it is good to
-                  note that it is referred to as the “Big Blue House”, so if you
-                  can’t find its exact local look for a big blue two story
-                  house!
-                </li>
-                <li>
-                  <b>Registry:</b> We understand weddings are an event people
-                  like to celebrate with gifts, so we are adding a registry,
-                  however, the presence of our guests is our priority and we are
-                  not expecting gifts!
-                </li>
-              </ul>
-            </Col>
-          </Col>
-        </Row>
-        <Row>
-          <a name='registry'></a>
-          <Col sm={12} className='content-block'>
-            <Col>
-              <span className='header-icon'>
-                <i className='fa-solid fa-gift'></i>
-              </span>
-            </Col>
-            <Col>
-              <h4 className='text'>Registry</h4>
-            </Col>
-            <a
-              href='https://www.myregistry.com/wedding-registry/tasha-mortimer-and-david-mitchell-lexington-ky/3609521'
-              target='_blank'
-            >
-              click here for our registry
-            </a>
+            <Row>
+              <Col sm={12} md={4} className='content-block mx-auto'>
+                {/* ONE COL LAYOUT */}
+                <InfoCard image={photo_preview}>
+                  <a
+                    className='w-100 btn btn-primary'
+                    href='https://weduploader.com/upload/SqJusmnWKcBgPcVr'
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    share your photos with us!
+                  </a>
+                </InfoCard>
+              </Col>
+            </Row>
+            <Row>
+              <a name='registry'></a>
+              <Col sm={12} className='content-block'>
+                <Col>
+                  <span className='header-icon'>
+                    <i className='fa-solid fa-gift'></i>
+                  </span>
+                </Col>
+                <Col>
+                  <h4 className='text'>Registry</h4>
+                </Col>
+                <a
+                  href='https://www.myregistry.com/wedding-registry/tasha-mortimer-and-david-mitchell-lexington-ky/3609521'
+                  target='_blank'
+                >
+                  click here for our registry
+                </a>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Container>

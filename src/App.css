@@ -94,10 +94,10 @@ header a:hover {
   z-index: 1000;
 }
 
-.card a {
+/* .card a {
   text-decoration: none;
   color: #333 !important;
-}
+} */
 
 .collage-img {
   width: 8em;
@@ -112,4 +112,18 @@ header a:hover {
   object-fit: cover;
   overflow: hidden;
   border-radius: 10px;
+}
+
+.card-img-top {
+  opacity: 0.6;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+  background-color: #333;
+  border-color: #333;
+  font-size: 1.25em;
 }
