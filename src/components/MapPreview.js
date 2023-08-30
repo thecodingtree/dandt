@@ -16,7 +16,7 @@ export const MapPreview = () => {
   //18.480987396372637, -66.685398555694
 
   return (
-    <LoadScript googleMapsApiKey='AIzaSyACL4cRdq4cgz8ur-yjEAuywmtsnzfrDCQ'>
+    <LoadScript googleMapsApiKey='INSERT_FROM_ENV'>
       <GoogleMap mapContainerStyle={containerStyle} center={position} zoom={15}>
         {/* Child components, such as markers, info windows, etc. */}
         <Marker position={position} />
