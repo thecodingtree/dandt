@@ -1,12 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 
 import './App.css';
 
@@ -15,9 +11,10 @@ import program_preview from './assets/program_preview.png';
 import schedule_preview from './assets/schedule_preview.png';
 import photo_preview from './assets/photo_preview.png';
 
-// import { MapPreview } from './components/MapPreview';
 import { UsGallery } from './components/UsGallery';
 import { InfoCard } from './components/InfoCard';
+
+import { getDaysUntilWeddingLabel } from './utils';
 
 function App() {
   const [showGoToTop, setShowGoToTop] = useState(false);
@@ -36,35 +33,7 @@ function App() {
     });
   }, []);
 
-  const goToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
   const navArea = useRef(null);
-
-  const getDaysUntilWedding = () => {
-    const now = new Date();
-    const weddingDate = new Date('2023-05-12');
-    const timezoneOffset = now.getTimezoneOffset() * 60 * 1000; // convert minutes to milliseconds
-    return Math.ceil(
-      (weddingDate - now + timezoneOffset) / (1000 * 60 * 60 * 24)
-    );
-  };
-
-  let daysTillWedding = getDaysUntilWedding();
-  let daysTillWeddingLabel = '';
-  if (daysTillWedding === 0) {
-    daysTillWeddingLabel = "we're getting married today!";
-  } else if (daysTillWedding === 1) {
-    daysTillWeddingLabel = "we're getting married tomorrow!";
-  } else if (daysTillWedding < 0) {
-    daysTillWeddingLabel = 'we got married!';
-  } else {
-    daysTillWeddingLabel = `we're getting married in ${daysTillWedding} days!`;
-  }
 
   return (
     <div className='App mb-5'>
@@ -83,7 +52,7 @@ function App() {
           <Col className='col-10 m-auto'>
             <Row>
               <Col sm={12} className='content-block'>
-                <h2 className='text'>{daysTillWeddingLabel}</h2>
+                <h2 className='text'>{getDaysUntilWeddingLabel()}</h2>
                 <p>
                   We are so excited that you are joining us for our wedding day
                   in beautiful Arecibo, PR!
